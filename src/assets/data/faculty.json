@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. A B",
+    "title": "Professor, Computer Science",
+    "imageUrl": "https://picsum.photos/300/300",
+    "researchInterests": ["Machine Learning", "Data Science"]
+  },
+  {
+    "id": 2,
+    "name": "Dr. X Y",
+    "title": "Associate Professor, Electronics",
+    "imageUrl": "https://picsum.photos/300/300",
+    "researchInterests": ["VLSI Design", "Embedded Systems"]
+  }
+]
