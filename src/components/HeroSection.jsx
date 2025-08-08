@@ -20,29 +20,27 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 
-// Data for the research areas grid
+// Data for the research areas grid (simplified labels)
 const researchAreas = [
   {
     label: "Systems and Sensing",
     path: "/research/systems-sensing",
-    icon: <DnsIcon sx={{ fontSize: 60 }} color="primary" />,
-    description: "NLP and IR", // As seen in your video
+    icon: <DnsIcon sx={{ fontSize: 60 }} color="error" />, // FIX: Color changed to red
   },
   {
     label: "Network Science and ML",
     path: "/research/network-ml",
-    icon: <ShareIcon sx={{ fontSize: 60 }} color="primary" />,
+    icon: <ShareIcon sx={{ fontSize: 60 }} color="error" />, // FIX: Color changed to red
   },
   {
-    label: "Natural Language Processing",
+    label: "NLP and IR",
     path: "/research/nlp",
-    icon: <TranslateIcon sx={{ fontSize: 60 }} color="primary" />,
-    description: "NLP and IR",
+    icon: <TranslateIcon sx={{ fontSize: 60 }} color="error" />, // FIX: Color changed to red
   },
   {
     label: "Web and Social",
     path: "/research/web-social",
-    icon: <LanguageIcon sx={{ fontSize: 60 }} color="primary" />,
+    icon: <LanguageIcon sx={{ fontSize: 60 }} color="error" />, // FIX: Color changed to red
   },
 ];
 
@@ -54,11 +52,10 @@ function HomePage() {
 
   return (
     <Box>
-      {/* Section 1: Hero Banner (like the group photo) */}
       <HeroBanner />
 
       {/* Section 2: Research Areas */}
-      <Container maxWidth="md" sx={{ py: 8 }}>
+      <Container maxWidth="lg" sx={{ py: 8 }}>
         <Typography
           variant="h4"
           component="h2"
@@ -66,14 +63,23 @@ function HomePage() {
         >
           RESEARCH AREAS
         </Typography>
-        <Grid container spacing={5} justifyContent="center">
+        {/* FIX: Changed container to lg and item sizing */}
+        <Grid container spacing={4} justifyContent="center">
           {researchAreas.map((area) => (
-            <Grid item key={area.label} xs={12} sm={6} md={5}>
+            // FIX: Grid sizing changed to sm={6} and md={3} for better responsiveness
+            <Grid item key={area.label} xs={12} sm={6} md={3}>
               <Paper
                 component={RouterLink}
                 to={area.path}
                 elevation={0}
                 sx={{
+                  // FIX: Flexbox layout for proper centering and uniform height
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "100%",
+                  minHeight: "200px", // Ensures space for text wrapping
                   p: 3,
                   textAlign: "center",
                   textDecoration: "none",
@@ -92,9 +98,7 @@ function HomePage() {
                   component="h3"
                   sx={{ mt: 2, fontWeight: "600" }}
                 >
-                  {area.label === "Natural Language Processing"
-                    ? "NLP and IR"
-                    : area.label}
+                  {area.label}
                 </Typography>
               </Paper>
             </Grid>
@@ -123,7 +127,6 @@ function HomePage() {
           >
             Tweets by cnerg
           </Typography>
-          {/* You would embed the Twitter timeline component here */}
         </Container>
       </Box>
 
@@ -131,7 +134,7 @@ function HomePage() {
       <Box
         component="footer"
         sx={{
-          backgroundColor: "#008080", // Teal color from video
+          backgroundColor: "#008080",
           color: "white",
           py: 4,
           textAlign: "center",

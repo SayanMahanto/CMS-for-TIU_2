@@ -125,7 +125,7 @@ const PeopleTable = ({ title }) => (
 );
 
 // Main component
-export default function FacultyPage() {
+export default function People() {
   return (
     <div className="p-6">
       {/* Page Header */}
